@@ -1,4 +1,0 @@
-azure-identity>=1.16.0
-azure-eventhub>=5.11.0
-requests>=2.31.0
-PyYAML>=6.0.1
