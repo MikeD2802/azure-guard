@@ -1,0 +1,17 @@
+[project]
+name = "azure-security-guard"
+version = "0.2.0"
+description = "Detects detection-suppression and telemetry-weakening changes across Azure and Entra ID"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
