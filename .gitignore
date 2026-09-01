@@ -1,0 +1,25 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Runtime artifacts -- these hold live configuration and collected tenant state
+# and must never reach the remote.
+.state/
+*.log
+config.yaml
+config.yml
+config.json
+
+# Local editor / OS noise
+.vscode/
+.idea/
+.DS_Store

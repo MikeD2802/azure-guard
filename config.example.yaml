@@ -1,0 +1,45 @@
+# Copy to config.yaml and edit. config.yaml is gitignored.
+# ${VAR} references are expanded from the environment at load time, so secrets
+# never need to live in this file.
+
+tenant_id: "00000000-0000-0000-0000-000000000000"
+
+subscriptions:
+  - "11111111-1111-1111-1111-111111111111"
+
+# Optional. Left empty, Sentinel-onboarded workspaces are discovered per
+# subscription via the SecurityInsights solution.
+sentinel_workspaces: []
+
+# Optional extra resource IDs whose diagnostic settings should be watched
+# (key vaults, storage accounts, NSGs -- anything whose logs matter).
+diagnostic_scopes: []
+
+# Optional extra scopes for role-assignment monitoring, beyond each
+# subscription and Sentinel workspace. Management group scopes work here.
+rbac_scopes: []
+
+# Watch the Entra ID tenant diagnostic settings that export sign-in and
+# audit logs. Requires reader access at tenant scope.
+monitor_entra_diagnostics: true
+
+# Omit to enable all monitors. Run --list-monitors to see the names.
+enabled_monitors:
+  - activity_export_monitor
+  - sentinel_monitor
+  - defender_monitor
+  - entraid_monitor
+  - rbac_monitor
+  - policy_monitor
+  - alerting_monitor
+
+interval_seconds: 300
+state_dir: ".state"
+log_file: "audit.log"
+
+fluency:
+  enabled: false
+  url: "https://example.fluencysecurity.com/api/events"
+  api_key: "${FLUENCY_API_KEY}"
+  verify_tls: true
+  timeout_seconds: 10
